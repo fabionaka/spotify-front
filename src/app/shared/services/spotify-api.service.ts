@@ -14,7 +14,8 @@ export class SpotifyApiService {
 
   config: spotifyApiConfig = {
     apiUrl: "https://api.spotify.com/v1",
-    endpoint: { user: "/me", categories: "/browse/categories", search: "/search" }
+    endpoint: { user: "/me", categories: "/browse/categories", search: "/search", albums: "/albums" }
+
   }
   /**
    * Header enviados para a API
@@ -79,15 +80,40 @@ export class SpotifyApiService {
     )
   }
 
-
+  /**
+   *  Get Spotify catalog information about albums, artists, playlists, tracks, shows or episodes that match a keyword string.
+   *
+   * @param {spotifySearchConfig} config
+   * @returns
+   * @memberof SpotifyApiService
+   */
   public search(config: spotifySearchConfig) {
     return this.http.get(this.config.apiUrl + this.config.endpoint.search + this.getSearchQueries(config), { headers: this.headers })
 
   }
+  /**
+   *
+   *
+   * @private
+   * @param {*} queries
+   * @returns {string}
+   * @memberof SpotifyApiService
+   */
   private getSearchQueries(queries: any): string {
     let teste = Object.keys(queries).map((query: string) => {
       return query + "=" + queries[query];
     });
     return "?" + teste.join("&");
+  }
+
+  /**
+   * Get Spotify catalog information for a single album. 
+   *
+   * @param {string} albumId
+   * @returns {Observable<any>}
+   * @memberof SpotifyApiService
+   */
+  public fetchAlbum(albumId: string | null): Observable<any> {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.albums + "/" + albumId, { headers: this.headers });
   }
 }

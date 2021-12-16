@@ -36,7 +36,6 @@ export class AuthService {
     window.location.href = this.buildAuthUrl();
   }
   public authorized(): void {
-    console.log('Called auth');
     this._authorized.next(true);
   }
 }

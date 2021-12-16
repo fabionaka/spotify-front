@@ -16,7 +16,7 @@ export class SpotifyAuthComponent implements OnInit {
 
   ngOnInit(): void {
     if (!!this.tokenService.hasTokens)
-      this.router.navigate(['search']);
+      this.router.navigate(['album','0QVoYzGd1p8Z3ohEaM0lsc']);
   }
 
 }
