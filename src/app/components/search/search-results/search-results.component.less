@@ -1,0 +1,67 @@
+@import url("../../../../variables.less");
+spotify-search-results {
+  width: 100%;
+  display: block;
+}
+
+@card-width: 200px;
+@header-size: 24px;
+@image-margin: 10%;
+@card-color: darken(@mainBgColor, 5%);
+
+.spotify-search-result {
+  padding: 15px;
+
+  h4 {
+    font-size: @header-size;
+    text-transform: capitalize;
+  }
+  &-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-x: auto;
+    padding-bottom: 1em;
+
+    .spotify-search-result-item {
+      max-width: @card-width;
+      min-width: @card-width;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: 100ms all;
+      //background-color: @card-color;
+      border-radius: 10px;
+      margin: 0 5px;
+
+      .item-display-image {
+        width: (@card-width - @image-margin);
+        height: (@card-width - @image-margin);
+        overflow: hidden;
+        border-radius: @card-width;
+        margin: ((@card-width - (@card-width - @image-margin)) / 2);
+
+        img {
+          width: 100%;
+        }
+      }
+      .item-name {
+        color: @mainLightColor;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+
+        .item-name-info {
+          font-size: 0.8em;
+          display: block;
+          font-weight: 400;
+          color: darken(@mainLightColor, 10%);
+        }
+      }
+
+      &:hover {
+        background-color: lighten(@card-color, 10%);
+      }
+    }
+  }
+}

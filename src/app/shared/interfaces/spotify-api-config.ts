@@ -5,4 +5,5 @@ export interface spotifyApiConfig {
 export interface spotifyApiEndpoint {
     user: string;
     categories: string;
+    search: string;
 }

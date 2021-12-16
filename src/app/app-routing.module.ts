@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoriesComponent } from './components/categories/categories.component';
+import { AlbumsComponent } from './components/albums/albums.component';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { CategoriesViewComponent } from './components/categories/categories-view/categories-view.component';
+import { SearchComponent } from './components/search/search.component';
 import { UserComponent } from './components/user/user.component';
-import { AuthGuard } from './modules/spotify-auth/services/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,8 +17,20 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
+    path: 'search',
+    component: SearchComponent,
+  },
+  {
     path: 'categories',
-    component: CategoriesComponent,
+    component: CategoriesListComponent,
+  },
+  {
+    path: 'categories/:categoryId',
+    component: CategoriesViewComponent,
+  },
+  {
+    path: 'albums/:albumId',
+    component: AlbumsComponent
   }
 ];
 

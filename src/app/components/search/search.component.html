@@ -1,0 +1,22 @@
+<div class="search-box">
+    <mat-form-field appearance="fill">
+        <mat-label>Artista, Musca, Album...</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput name="pesquisa" type="text" (keyup)="search()" [(ngModel)]="searchQuery" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <mat-select multiple [(value)]="searchType" (valueChange)="search()">
+            <mat-option value="album">album</mat-option>
+            <mat-option value="artist">artist</mat-option>
+            <mat-option value="playlist">playlist</mat-option>
+            <mat-option value="track">track</mat-option>
+            <mat-option value="show">show</mat-option>
+            <mat-option value="episode">episode</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="result">
+    <spotify-search-results *ngFor="let item of resources" [list]="item"></spotify-search-results>
+</div>

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { spotifyApiConfig } from '../interfaces/spotify-api-config';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { TokenService } from 'src/app/modules/spotify-auth/services/token.service';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { SpotifyUser } from '../models/spotify-models';
+import { spotifyApiConfig } from '../interfaces/spotify-api-config';
+import { spotifySearchConfig } from '../interfaces/spotify-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SpotifyApiService {
 
   config: spotifyApiConfig = {
     apiUrl: "https://api.spotify.com/v1",
-    endpoint: { user: "/me", categories: "/browse/categories", }
+    endpoint: { user: "/me", categories: "/browse/categories", search: "/search" }
   }
   /**
    * Header enviados para a API
@@ -47,7 +48,7 @@ export class SpotifyApiService {
    * @returns
    * @memberof SpotifyApiService
    */
-  public fetchUser() {
+  public fetchUser(): Observable<SpotifyUser> {
     return this.http.get(this.config.apiUrl + this.config.endpoint.user, { headers: this.headers }).pipe(map(u => {
       return Object.assign(new SpotifyUser, u);
     })
@@ -61,7 +62,32 @@ export class SpotifyApiService {
    *
    * @memberof SpotifyApiService
    */
-  public fetchCategories() {
+  public fetchCategories(): Observable<any> {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.categories, { headers: this.headers }).pipe(map(c => {
+      return c
+    })
+      //, erroCatch() colocar depois
+    )
+  }
 
+  public fetchCategory(categoryId: string | null): Observable<any> | undefined {
+    if (categoryId === null) return;
+    return this.http.get(this.config.apiUrl + this.config.endpoint.categories + "/" + categoryId, { headers: this.headers }).pipe(map(c => {
+      return c
+    })
+      //, erroCatch() colocar depois
+    )
+  }
+
+
+  public search(config: spotifySearchConfig) {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.search + this.getSearchQueries(config), { headers: this.headers })
+
+  }
+  private getSearchQueries(queries: any): string {
+    let teste = Object.keys(queries).map((query: string) => {
+      return query + "=" + queries[query];
+    });
+    return "?" + teste.join("&");
   }
 }

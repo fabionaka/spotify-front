@@ -1,4 +1,4 @@
-import { ExplicitContent, ExternalUrls, Followers, Image, SpotifyUserInterface } from "../interfaces/spotify-interfaces";
+import { ExplicitContent, ExternalUrls, Followers, Image, SpotifySearchResponseItemInterface, SpotifyUserInterface } from "../interfaces/spotify-interfaces";
 
 export class SpotifyUser implements SpotifyUserInterface {
     constructor(
@@ -15,4 +15,18 @@ export class SpotifyUser implements SpotifyUserInterface {
         public type?: string,
         public uri?: string,
     ) { }
+}
+export class SpotifySearchResponseItem implements SpotifySearchResponseItemInterface {
+    constructor(
+        public href?: string,
+        public next?: string | null,
+        public previous?: string | null,
+        public items?: any[],
+        public limit?: number,
+        public offset?: number,
+        public total?: number,
+    ) {
+
+    }
+
 }

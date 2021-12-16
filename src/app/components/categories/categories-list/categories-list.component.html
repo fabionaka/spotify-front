@@ -1,0 +1,8 @@
+<h3>Categorias</h3>
+
+<div class="card-container">
+    <div class="card" *ngFor="let category of categories" (click)="goTo(category)">
+        <div class="card-icons"><img *ngFor="let icon of category.icons" src="{{icon.url}}" /></div>
+        <span class="card-name">{{category.name}}</span>
+    </div>
+</div>

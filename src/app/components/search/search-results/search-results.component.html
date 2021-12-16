@@ -1,0 +1,22 @@
+<div class="spotify-search-result">
+    <h4>{{componentTitle()}}</h4>
+    <div class="spotify-search-result-list">
+        <div class="spotify-search-result-item" *ngFor="let item of list?.items" (click)="open(item)">
+            <div
+                *ngIf="item.type === 'artist' || item.type === 'album' || item.type === 'show' || item.type === 'episode' || item.type === 'playlist'">
+                <div class="item-display-image">
+                    <img *ngIf="item.images.length > 0" src="{{item.images[0].url}}" />
+                </div>
+                <span class="item-name">{{item.name}}</span>
+            </div>
+            <div *ngIf="item.type === 'track' ">
+                <div class="item-display-image">
+                    <img *ngIf="item.album.images.length > 0" src="{{item.album.images[0].url}}" />
+                </div>
+                <span class="item-name">{{item.name}}
+                    <span class="item-name-info">{{item.artists[0].name}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
