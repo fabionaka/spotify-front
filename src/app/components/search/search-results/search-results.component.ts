@@ -23,9 +23,8 @@ export class SearchResultsComponent implements OnInit {
     return this.list.items[0].type;
   }
 
-
   open(item: any): void {
-    console.log(item.type);
+    this.router.navigate([item.type, item.id])
   }
 
 }

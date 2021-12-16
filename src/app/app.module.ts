@@ -11,7 +11,7 @@ import { CategoriesViewComponent } from './components/categories/categories-view
 import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './components/search/search-results/search-results.component';
-import { AlbumsComponent } from './components/albums/albums.component';
+import { AlbumComponent } from './components/album/album.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { AlbumsComponent } from './components/albums/albums.component';
     CategoriesViewComponent,
     SearchComponent,
     SearchResultsComponent,
-    AlbumsComponent
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
