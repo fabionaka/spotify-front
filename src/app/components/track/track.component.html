@@ -1,0 +1,13 @@
+<div class="display-error" *ngIf="!resource">No track data</div>
+<div class="track-info" *ngIf="resource">
+    <div class="album-image" *ngIf="resource.album">
+        <img *ngIf="resource.album.images" src="{{resource.album.images[0].url}}" />
+    </div>
+    <div class="track-info-data">
+        <span class="name">{{resource.name}}</span>
+        <span>{{resource.type}}</span>
+        <span>{{resource.duration_ms|date: "mm:ss"}}</span>
+        <div class=""><span class="album-name" (click)="open(resource.album)">{{resource.album?.name}}</span> - <span
+                (click)="open(artist)" *ngFor="let artist of resource.album?.artists">{{artist.name}}</span> </div>
+    </div>
+</div>

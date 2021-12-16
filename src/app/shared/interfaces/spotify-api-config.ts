@@ -7,4 +7,5 @@ export interface spotifyApiEndpoint {
     categories: string;
     search: string;
     albums: string;
+    tracks: string;
 }

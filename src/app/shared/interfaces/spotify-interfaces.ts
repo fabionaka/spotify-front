@@ -1,3 +1,4 @@
+import { SpotifyAlbum } from "../models/spotify-album";
 import { SpotifySearchResponseItem } from "../models/spotify-models";
 
 export interface ExplicitContent {
@@ -157,7 +158,7 @@ export interface Tracks {
     previous?: any;
     total: number;
 }
-export interface AlbunInterface {
+export interface AlbumInterface {
     album_type?: string;
     artists?: Artist[];
     available_markets?: string[];
@@ -177,4 +178,24 @@ export interface AlbunInterface {
     tracks?: Tracks;
     type?: string;
     uri?: string;
+}
+
+export interface SpotifyTrackInterface {
+    album?: SpotifyAlbum | undefined;
+    artists?: Artist[] | undefined;
+    available_markets?: string[] | undefined;
+    disc_number?: number | undefined;
+    duration_ms?: number | undefined;
+    explicit?: boolean | undefined;
+    external_ids?: ExternalIds | undefined;
+    external_urls?: ExternalUrls | undefined;
+    href?: string | undefined;
+    id?: string | undefined;
+    is_local?: boolean | undefined;
+    name?: string | undefined;
+    popularity?: number | undefined;
+    preview_url?: string | undefined;
+    track_number?: number | undefined;
+    type?: string | undefined;
+    uri?: string | undefined;
 }

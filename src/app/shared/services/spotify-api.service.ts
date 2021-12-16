@@ -14,7 +14,7 @@ export class SpotifyApiService {
 
   config: spotifyApiConfig = {
     apiUrl: "https://api.spotify.com/v1",
-    endpoint: { user: "/me", categories: "/browse/categories", search: "/search", albums: "/albums" }
+    endpoint: { user: "/me", categories: "/browse/categories", search: "/search", albums: "/albums", tracks:"/tracks"}
 
   }
   /**
@@ -115,5 +115,8 @@ export class SpotifyApiService {
    */
   public fetchAlbum(albumId: string | null): Observable<any> {
     return this.http.get(this.config.apiUrl + this.config.endpoint.albums + "/" + albumId, { headers: this.headers });
+  }
+  public fetchTrack(trackId: string | null): Observable<any> {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.tracks + "/" + trackId, { headers: this.headers });
   }
 }
