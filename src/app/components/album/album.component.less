@@ -1,0 +1,107 @@
+@import url("../../../variables.less");
+.album-header {
+  display: flex;
+  margin: 15px 0;
+}
+.album-cover {
+  width: 160px;
+  img {
+    width: 100%;
+  }
+}
+.album-info {
+  ul {
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    li {
+      margin-bottom: 10px;
+
+      &.album-name {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 32px;
+        color: #fff;
+        margin-bottom: none;
+      }
+      &.album-artists {
+        font-weight: 100;
+        font-size: 12px;
+
+        .artist {
+          transition: 100ms all;
+          &:hover {
+            text-decoration: underline;
+            color: lighten(@mainLightColor, 10%);
+            cursor: pointer;
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: none;
+      }
+    }
+  }
+}
+.more-info {
+  span {
+    font-weight: 100;
+    margin: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+
+    &::after {
+      display: inline-block;
+      content: "|";
+      margin-left: 5px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  @icon-size: 10px;
+  .icon {
+    font-size: @icon-size;
+    line-height: @icon-size;
+    width: @icon-size;
+    height: @icon-size;
+  }
+}
+.album-songs {
+  margin: 0 2rem;
+
+  .track-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 10px 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 100ms all;
+
+    .cell {
+      margin: 5px 10px;
+      &.primary {
+        flex-grow: 1;
+      }
+    }
+
+    &:hover {
+      background-color: lighten(@mainBgColor, 10%);
+    }
+  }
+}
