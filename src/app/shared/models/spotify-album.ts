@@ -1,6 +1,6 @@
-import { AlbunInterface, Artist, Copyright, ExternalIds, ExternalUrls, Image, Tracks } from "../interfaces/spotify-interfaces";
+import { AlbumInterface, Artist, Copyright, ExternalIds, ExternalUrls, Image, Tracks } from "../interfaces/spotify-interfaces";
 
-export class SpotifyAlbum implements AlbunInterface {
+export class SpotifyAlbum implements AlbumInterface {
     constructor(
         public album_type?: string,
         public artists?: Artist[],

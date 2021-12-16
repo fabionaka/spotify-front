@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './components/search/search-results/search-results.component';
 import { AlbumComponent } from './components/album/album.component';
+import { TrackComponent } from './components/track/track.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlbumComponent } from './components/album/album.component';
     CategoriesViewComponent,
     SearchComponent,
     SearchResultsComponent,
-    AlbumComponent
+    AlbumComponent,
+    TrackComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AlbumComponent } from './components/album/album.component';
 import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { CategoriesViewComponent } from './components/categories/categories-view/categories-view.component';
 import { SearchComponent } from './components/search/search.component';
+import { TrackComponent } from './components/track/track.component';
 import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'album/:albumId',
     component: AlbumComponent
+  },
+  {
+    path: 'track/:trackId',
+    component: TrackComponent
   }
 ];
 
