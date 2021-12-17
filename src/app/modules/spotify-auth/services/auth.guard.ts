@@ -9,9 +9,7 @@ import { TokenService } from "./token.service";
 export class AuthGuard implements CanActivate, CanActivateChild {
 
     constructor(
-        private authService: AuthService,
-        private tokenService: TokenService,
-        private router: Router,
+        private tokenService: TokenService
     ) { }
 
     public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
@@ -30,14 +28,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
             return !!f;
         }
         if (!!localStorage.getItem('token') && typeof localStorage.getItem('token') === 'string') {
-            
+
             let response: SpotifyAuthResponse = {
                 access_token: (localStorage.getItem('token') === null) ? "" : localStorage.getItem('token')?.toString(),
                 token_type: "",
                 expires_in: 0,
                 state: undefined
             }
-
             this.tokenService.setToken(response);
             return !!localStorage.getItem('token');
         }

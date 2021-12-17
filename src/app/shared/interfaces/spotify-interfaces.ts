@@ -1,5 +1,5 @@
-import { SpotifyAlbum } from "../models/spotify-album";
-import { SpotifySearchResponseItem } from "../models/spotify-models";
+import { SpotifyAlbum } from "../models/spotify-album.model";
+import { SpotifySearchResponseItem } from "../models/spotify-models.model";
 
 export interface ExplicitContent {
     filter_enabled: boolean;
@@ -198,4 +198,17 @@ export interface SpotifyTrackInterface {
     track_number?: number | undefined;
     type?: string | undefined;
     uri?: string | undefined;
+}
+
+export interface SpotifyArtistInterface  {
+    external_urls?: ExternalUrls;
+    followers?: Followers;
+    genres?: string[];
+    href?: string;
+    id?: string;
+    images?: Image[];
+    name?: string;
+    popularity?: number;
+    type?: string;
+    uri?: string;
 }

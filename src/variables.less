@@ -1,7 +1,58 @@
 @mainBgColor: #2f3136;
-@mainLightColor: lighten(@mainBgColor,55%);
-
+@mainLightColor: lighten(@mainBgColor, 55%);
 
 // Components
+@headingImageWidth: 160px;
 @titleFontSize: 32px;
 @titleColor: #fff;
+
+//mixins
+.radiusOverflow(@size) {
+  border-radius: @size;
+  overflow: hidden;
+}
+
+.imageRounded(@size) {
+  max-width: @size;
+  min-width: @size;
+  max-height: @size;
+  .radiusOverflow(@size);
+  img {
+    width: 100%;
+  }
+}
+
+.headerTitle() {
+  font-size: @titleFontSize;
+  line-height: @titleFontSize;
+  color: @titleColor;
+  transition: 100ms;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: darken(@titleColor, 10%);
+  }
+  &:visited {
+    color: @titleColor;
+  }
+  &:active {
+    color: darken(@titleColor, 15%);
+  }
+
+  > a {
+    color: @titleColor;
+    text-decoration: none;
+    transition: 100ms;
+
+    &:hover {
+      color: darken(@titleColor, 10%);
+    }
+    &:visited {
+      color: @titleColor;
+    }
+    &:active {
+      color: darken(@titleColor, 15%);
+    }
+  }
+}

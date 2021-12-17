@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { spotifySearchConfig, spotifySearchResponse, spotifySearchType } from 'src/app/shared/interfaces/spotify-interfaces';
-import { SpotifySearchResponseItem } from 'src/app/shared/models/spotify-models';
+import { SpotifySearchResponseItem } from 'src/app/shared/models/spotify-models.model';
 import { SpotifyApiService } from 'src/app/shared/services/spotify-api.service';
 
 @Component({

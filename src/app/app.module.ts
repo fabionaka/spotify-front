@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './components/search/search-results/search-results.component';
 import { AlbumComponent } from './components/album/album.component';
 import { TrackComponent } from './components/track/track.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TrackComponent } from './components/track/track.component';
     SearchComponent,
     SearchResultsComponent,
     AlbumComponent,
-    TrackComponent
+    TrackComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,

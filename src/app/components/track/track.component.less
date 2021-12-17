@@ -2,18 +2,21 @@
 
 .track-info {
   display: flex;
-  margin: 15px 0;
+  margin: 2em;
 }
 
 .album-image {
-  width: 160px;
-  overflow: hidden;
+  max-width: @headingImageWidth;
+  min-width: @headingImageWidth;
+  max-height: @headingImageWidth;
+  .radiusOverflow(@headingImageWidth);
   img {
     width: 100%;
   }
 }
 
 .track-info-data {
+  margin-left: 1em;
   .name {
     font-weight: bold;
     font-size: @titleFontSize;

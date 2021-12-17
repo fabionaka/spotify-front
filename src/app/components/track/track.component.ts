@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { SpotifyTrack } from 'src/app/shared/models/spotify-track';
+import { SpotifyTrack } from 'src/app/shared/models/spotify-track.model';
 import { SpotifyApiService } from 'src/app/shared/services/spotify-api.service';
 
 @Component({

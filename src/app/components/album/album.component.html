@@ -8,7 +8,8 @@
         <div class="album-info">
             <ul>
                 <li class="album-name">{{resource.name}}</li>
-                <li class="album-artists"><span class="artist" *ngFor="let artist of resource.artists" (click)='open(artist)'>
+                <li class="album-artists"><span class="artist" *ngFor="let artist of resource.artists"
+                        (click)='open(artist)'>
                         {{artist.name}}</span></li>
                 <li *ngIf="resource.genres">
                     <span class="artist" *ngFor="let genre of resource.genres">{{genre}}</span>

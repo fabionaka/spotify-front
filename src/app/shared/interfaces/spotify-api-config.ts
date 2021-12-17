@@ -8,4 +8,5 @@ export interface spotifyApiEndpoint {
     search: string;
     albums: string;
     tracks: string;
+    artists: string;
 }

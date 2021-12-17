@@ -9,16 +9,16 @@ import { SpotifyAuthResponse } from '../interfaces/spotify-auth-response';
 export class TokenService {
 
   private token: string = "";
-  private _token: BehaviorSubject<string> = new BehaviorSubject(this.token);
+  private token$: BehaviorSubject<string> = new BehaviorSubject(this.token);
 
   public setToken(response: SpotifyAuthResponse): boolean {
     this.token = (!!response && !!response.access_token) ? response.access_token : "";
     localStorage.setItem('token', this.token);
-    this._token.next(this.token);
+    this.token$.next(this.token);
     return !!this.token;
   }
 
   public get hasTokens(): Observable<string> {
-    return this._token.asObservable();
+    return this.token$.asObservable();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SpotifySearchResponseItem } from 'src/app/shared/models/spotify-models';
+import { SpotifySearchResponseItem } from 'src/app/shared/models/spotify-models.model';
 
 @Component({
   selector: 'spotify-search-results',

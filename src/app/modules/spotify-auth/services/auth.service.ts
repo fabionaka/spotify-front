@@ -16,7 +16,7 @@ export class AuthService {
     scope: ["user-read-email", "user-read-private"]
   }
   private initFalse: boolean = false;
-  private _authorized: BehaviorSubject<boolean> = new BehaviorSubject(this.initFalse);
+  private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(this.initFalse);
 
   private buildAuthUrl(): string {
 
@@ -32,10 +32,10 @@ export class AuthService {
     return `https://accounts.spotify.com/authorize?${params.join('&')}`;
   }
 
-  public authorize() {
+  public authorize(): void {
     window.location.href = this.buildAuthUrl();
   }
   public authorized(): void {
-    this._authorized.next(true);
+    this.authorized$.next(true);
   }
 }

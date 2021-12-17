@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlbumComponent } from './components/album/album.component';
+import { ArtistComponent } from './components/artist/artist.component';
 import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { CategoriesViewComponent } from './components/categories/categories-view/categories-view.component';
 import { SearchComponent } from './components/search/search.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'track/:trackId',
     component: TrackComponent
+  },
+  {
+    path: 'artist/:artistId',
+    component: ArtistComponent
   }
 ];
 

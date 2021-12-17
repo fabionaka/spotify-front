@@ -1,5 +1,13 @@
 # SpotifyFront
 
+##
+=============================== Coverage summary ===============================
+Statements   : 86.12% ( 211/245 )
+Branches     : 50% ( 30/60 )
+Functions    : 72.72% ( 56/77 )
+Lines        : 85.9% ( 189/220 )
+================================================================================
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
 
 ## Development server

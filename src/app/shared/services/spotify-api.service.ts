@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { TokenService } from 'src/app/modules/spotify-auth/services/token.service';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { SpotifyUser } from '../models/spotify-models';
+import { SpotifyUser } from '../models/spotify-models.model';
 import { spotifyApiConfig } from '../interfaces/spotify-api-config';
 import { spotifySearchConfig } from '../interfaces/spotify-interfaces';
 
@@ -14,7 +14,14 @@ export class SpotifyApiService {
 
   config: spotifyApiConfig = {
     apiUrl: "https://api.spotify.com/v1",
-    endpoint: { user: "/me", categories: "/browse/categories", search: "/search", albums: "/albums", tracks:"/tracks"}
+    endpoint: {
+      user: "/me",
+      categories: "/browse/categories",
+      search: "/search",
+      albums: "/albums",
+      tracks: "/tracks",
+      artists: "/artists",
+    }
 
   }
   /**
@@ -89,7 +96,6 @@ export class SpotifyApiService {
    */
   public search(config: spotifySearchConfig) {
     return this.http.get(this.config.apiUrl + this.config.endpoint.search + this.getSearchQueries(config), { headers: this.headers })
-
   }
   /**
    *
@@ -100,10 +106,12 @@ export class SpotifyApiService {
    * @memberof SpotifyApiService
    */
   private getSearchQueries(queries: any): string {
-    let teste = Object.keys(queries).map((query: string) => {
+    if (typeof queries === 'undefined')
+      return "";
+    let query = Object.keys(queries).map((query: string) => {
       return query + "=" + queries[query];
     });
-    return "?" + teste.join("&");
+    return (query.length > 0) ? "?" + query.join("&") : "";
   }
 
   /**
@@ -118,5 +126,19 @@ export class SpotifyApiService {
   }
   public fetchTrack(trackId: string | null): Observable<any> {
     return this.http.get(this.config.apiUrl + this.config.endpoint.tracks + "/" + trackId, { headers: this.headers });
+  }
+  public fetchArtist(artistId: string | null): Observable<any> {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.artists + "/" + artistId, { headers: this.headers });
+  }
+  public fetchArtistTopTracks(artistId: string | null, queries?: any): Observable<any> {
+    queries = this.getSearchQueries(queries);
+    return this.http.get(this.config.apiUrl + this.config.endpoint.artists + "/" + artistId + "/top-tracks" + queries, { headers: this.headers });
+  }
+  public fetchArtistAlbums(artistId: string | null, queries?: any): Observable<any> {
+    queries = this.getSearchQueries(queries);
+    return this.http.get(this.config.apiUrl + this.config.endpoint.artists + "/" + artistId + "/albums" + queries, { headers: this.headers });
+  }
+  public fetchArtistRelated(artistId: string | null, queries?: any): Observable<any> {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.artists + "/" + artistId + "/related-artists" + this.getSearchQueries(queries), { headers: this.headers });
   }
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription, switchMap, throwIfEmpty } from 'rxjs';
 import { AuthService } from 'src/app/modules/spotify-auth/services/auth.service';
 import { TokenService } from 'src/app/modules/spotify-auth/services/token.service';
-import { SpotifyUser } from 'src/app/shared/models/spotify-models';
+import { SpotifyUser } from 'src/app/shared/models/spotify-models.model';
 import { SpotifyApiService } from '../../shared/services/spotify-api.service'
 
 @Component({
@@ -14,7 +14,6 @@ import { SpotifyApiService } from '../../shared/services/spotify-api.service'
 export class UserComponent implements OnInit, OnDestroy {
 
   constructor(
-    private tokenService: TokenService,
     private spotifyApiService: SpotifyApiService,
   ) {
   }

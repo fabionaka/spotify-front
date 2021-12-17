@@ -1,15 +1,19 @@
 @import url("../../../variables.less");
 .album-header {
   display: flex;
-  margin: 15px 0;
+  margin: 2em;
 }
 .album-cover {
-  width: 160px;
+  max-width: @headingImageWidth;
+  min-width: @headingImageWidth;
+  max-height: @headingImageWidth;
+  .radiusOverflow(@headingImageWidth);
   img {
     width: 100%;
   }
 }
 .album-info {
+  margin-left: 1em;
   ul {
     margin: 0;
     padding: 5px;
