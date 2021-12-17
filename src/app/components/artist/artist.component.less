@@ -1,0 +1,53 @@
+@import url("../../../variables.less");
+
+.artist-heading {
+  display: flex;
+  margin: 2em;
+
+  .display-image {
+    max-width: @headingImageWidth;
+    min-width: @headingImageWidth;
+    max-height: @headingImageWidth;
+    .radiusOverflow(@headingImageWidth);
+    img {
+      width: 100%;
+    }
+  }
+
+  .artist-info {
+    margin-left: 1em;
+  }
+
+  .artist-name {
+    .headerTitle();
+  }
+}
+
+.tracks {
+  display: flex;
+
+  > .track-card {
+    background-color: #000;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+  }
+}
+
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  > .album-card {
+    background-color: #000;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+
+    .display-image {
+      .imageRounded((150px - 10px));
+    }
+  }
+}

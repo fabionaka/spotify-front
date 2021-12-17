@@ -1,0 +1,38 @@
+<div class="artist" *ngIf="resource">
+    <div class="artist-heading">
+        <div class="display-image" *ngIf="resource.images">
+            <img src="{{resource.images[0].url}}" />
+        </div>
+        <div class="artist-info">
+            <div class="artist-name">
+                <a *ngIf="resource.external_urls" href="{{resource.external_urls.spotify}}">{{resource.name}}</a>
+                <span *ngIf="!resource.external_urls">{{resource.name}}</span>
+            </div>
+            <div>{{resource.popularity}}</div>
+            <div *ngIf="resource.followers">{{resource.followers.total}}</div>
+            <div>
+                <span *ngFor="let genre of resource.genres">{{genre}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="top-tracks" *ngIf="resourceTracks.tracks">
+        <h4>Top Tracks</h4>
+        <div class="tracks">
+            <div class="track-card" *ngFor="let track of resourceTracks.tracks" (click)="open(track)">
+                <div>{{track.name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="artist-albums" *ngIf="resourceAlbums.items">
+        <h4>Albums</h4>
+        <div class="albums">
+            <div class="album-card" *ngFor="let album of resourceAlbums.items" (click)="open(album)">
+                <div class="display-image">
+                    <img src="{{album.images[0].url}}" />
+                </div>
+                <div>{{album.name}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>
