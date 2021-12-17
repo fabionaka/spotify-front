@@ -16,21 +16,32 @@
 
   .artist-info {
     margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
   .artist-name {
     .headerTitle();
   }
+  .type {
+    text-transform: capitalize;
+    font-weight: 100;
+    font-size: 12px;
+  }
+}
+.top-tracks,
+.artist-albums {
+  margin: 1em 2em;
 }
 
 .tracks {
   display: flex;
+  overflow-x: auto;
 
   > .track-card {
-    background-color: #000;
-    padding: 10px;
-    margin: 10px;
-    width: 150px;
+    .card();
   }
 }
 
@@ -41,13 +52,6 @@
   align-items: stretch;
 
   > .album-card {
-    background-color: #000;
-    padding: 10px;
-    margin: 10px;
-    width: 150px;
-
-    .display-image {
-      .imageRounded((150px - 10px));
-    }
+    .card();
   }
 }

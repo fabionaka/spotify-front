@@ -5,9 +5,10 @@
     </div>
     <div class="track-info-data">
         <span class="name">{{resource.name}}</span>
-        <span>{{resource.type}}</span>
-        <span>{{resource.duration_ms|date: "mm:ss"}}</span>
-        <div class=""><span class="album-name" (click)="open(resource.album)">{{resource.album?.name}}</span> - <span
-                (click)="open(artist)" *ngFor="let artist of resource.album?.artists">{{artist.name}}</span> </div>
+        <span class="type">{{resource.type}}</span>
+        <span class="duration">{{resource.duration_ms|date: "mm:ss"}}</span>
+        <div class="album-artist"><span class="album-name"
+                (click)="open(resource.album)">{{resource.album?.name}}</span> - <span (click)="open(artist)"
+                class="artist" *ngFor="let artist of resource.album?.artists">{{artist.name}}</span> </div>
     </div>
 </div>

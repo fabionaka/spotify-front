@@ -17,10 +17,27 @@
 
 .track-info-data {
   margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+
   .name {
-    font-weight: bold;
-    font-size: @titleFontSize;
-    line-height: @titleFontSize;
-    color: @titleColor;
+    .headerTitle();
+  }
+}
+.album-artist {
+  .album-name,
+  .artist {
+    cursor: pointer;
+    transition: 100ms all;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  .album-name {
+    font-size: 14px;
+  }
+  .artist {
+    font-size: 10px;
   }
 }

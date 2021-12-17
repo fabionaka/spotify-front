@@ -2,7 +2,3 @@
     <img class="user_image" *ngFor="let image of user?.images" src="{{image.url}}" />
     <span class="user_name"><a href="{{user?.external_urls?.spotify}}">{{user?.display_name}}</a></span>
 </div>
-
-<ul class="actions">
-    <li><a [routerLink]="'/categories'">Categorias</a></li>
-</ul>

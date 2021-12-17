@@ -11,16 +11,19 @@ import { SpotifyApiService } from 'src/app/shared/services/spotify-api.service';
 export class CategoriesViewComponent implements OnInit {
 
   constructor(
-    private tokenService: TokenService,
     private spotifyApiService: SpotifyApiService,
     private router: Router,
     protected route: ActivatedRoute,
   ) { }
+  resource: any;
 
   ngOnInit(): void {
-    this.spotifyApiService.fetchCategory(this.route.snapshot.paramMap.get('categoryId'))?.subscribe(c => {
-      console.log(c);
+    this.spotifyApiService.fetchCategory(this.route.snapshot.paramMap.get('categoryId'))?.subscribe(response => {
+      this.resource = response;
     })
   }
 
+  open(item: any): Promise<boolean> {
+    return this.router.navigate([item.type, item.id])
+  }
 }

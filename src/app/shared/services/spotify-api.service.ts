@@ -80,7 +80,7 @@ export class SpotifyApiService {
 
   public fetchCategory(categoryId: string | null): Observable<any> | undefined {
     if (categoryId === null) return;
-    return this.http.get(this.config.apiUrl + this.config.endpoint.categories + "/" + categoryId, { headers: this.headers }).pipe(map(c => {
+    return this.http.get(this.config.apiUrl + this.config.endpoint.categories + "/" + categoryId + "/playlists", { headers: this.headers }).pipe(map(c => {
       return c
     })
       //, erroCatch() colocar depois

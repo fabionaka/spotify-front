@@ -1,7 +1,11 @@
+@import url("../../../variables.less");
 .search-box {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0 auto;
+  width: 80%;
+
   :first-child {
     flex-grow: 2;
   }
@@ -20,27 +24,14 @@
     color: #eee;
   }
   > .result-card {
-    max-width: 200px;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: #222;
-    border-radius: 1em;
-
-    .display-image {
-      width: 200px;
-      height: 200px;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-    }
+    .card();
   }
 
   @media (max-width: 600px) {
     > .result-card {
-        max-width: 100%;
-        margin: 5px 0;
-        border-radius: 0;
+      max-width: 100%;
+      margin: 5px 0;
+      border-radius: 0;
       .display-image {
         width: 100%;
         height: auto;

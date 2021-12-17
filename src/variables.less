@@ -16,6 +16,7 @@
   max-width: @size;
   min-width: @size;
   max-height: @size;
+  min-height: @size;
   .radiusOverflow(@size);
   img {
     width: 100%;
@@ -54,5 +55,55 @@
     &:active {
       color: darken(@titleColor, 15%);
     }
+  }
+}
+.flexConainer() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.card() {
+  max-width: @headingImageWidth;
+  min-width: @headingImageWidth;
+  background-color: @mainBgColor;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 300;
+  transition: all 100ms;
+  cursor: pointer;
+  .image-card(@headingImageWidth);
+  .card-transitions();
+
+  .item-name {
+    display: block;
+    font-weight: 300;
+
+    .item-name-info {
+      font-size: 0.8em;
+      display: block;
+      font-weight: 100;
+      color: darken(@mainLightColor, 15%);
+    }
+  }
+}
+
+.image-card(@size) {
+  .display-image {
+    background-color: #00000025;
+
+    .imageRounded(@size);
+  }
+}
+
+.card-transitions() {
+  &:hover {
+    background-color: lighten(@mainBgColor, 10%);
+  }
+  &:visited {
+  }
+  &:active {
   }
 }
