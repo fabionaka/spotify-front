@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from 'src/app/app.module';
 
 import { CategoriesViewComponent } from './categories-view.component';
 
@@ -8,6 +9,7 @@ describe('CategoriesViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [AppModule],
       declarations: [ CategoriesViewComponent ]
     })
     .compileComponents();

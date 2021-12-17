@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from 'src/app/app.module';
 
 import { CategoriesListComponent } from './categories-list.component';
 
@@ -8,6 +9,7 @@ describe('CategoriesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [AppModule],
       declarations: [ CategoriesListComponent ]
     })
     .compileComponents();
